@@ -1,14 +1,21 @@
 arq = open("day01.txt", "r")
 linha = arq.read().splitlines()
-soma = []
-aux = 0
+calories = []
+loslElement = 0
 for i in linha:
     if i == "":
-        soma.append(aux)
-        aux = 0
+        calories.append(loslElement)
+        loslElement = 0
         continue
-    aux += int(i)
+    loslElement += int(i)
 
-valor = max(soma) if (max(soma) > aux) else aux
+# PARTE 1 DO DESAFIO
+calories.append(loslElement)
+print(f'Elf carrying the most Calories:', max(calories))
 
-print(valor)
+# PARTE 2 DO DESAFIO
+topthree = []
+calories = sorted(calories)
+for i in range(0, 3):
+    topthree.append(calories.pop())
+print(f'Total top three Elves carrying the most Calories: ', sum(topthree))
