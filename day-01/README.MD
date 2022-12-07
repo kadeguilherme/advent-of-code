@@ -54,9 +54,7 @@ In the example above, the top three Elves are the fourth Elf (with 24000 Calorie
 <details>
   <summary>RESPOSTA</summary>
 
-```python3
 Find the Elf carrying the most Calories. How many total Calories is that Elf carrying? 71471
-Find the top three Elves carrying the most Calories. How many Calories are those Elves carrying in total? 211189
-```
 
+Find the top three Elves carrying the most Calories. How many Calories are those Elves carrying in total? 211189
 </details>
