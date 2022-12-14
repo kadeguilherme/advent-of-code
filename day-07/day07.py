@@ -2,7 +2,7 @@ import os
 with open("day07.txt", "r") as file:
     data = file.read().strip().split("\n")
 
-subdirs = {}
+dirs = {}
 directory_size = {}
 
 for line in data:
@@ -16,8 +16,8 @@ for line in data:
                 #print(os.path.join(curdir, path))
                 curdir = os.path.normpath((os.path.join(curdir, path)))
                 # print(curdir)
-            if curdir not in subdirs:
-                subdirs[curdir] = []
+            if curdir not in dirs:
+                dirs[curdir] = []
     else:
         print(line.split())
-print(subdirs)
+print(dirs)
