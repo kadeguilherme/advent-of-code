@@ -4,6 +4,8 @@ with open("day07.txt", "r") as file:
 
 dirs = {}
 directory_size = {}
+sub_dir = []
+totaldir = 0
 
 for line in data:
     if line[0] == '$':
@@ -13,11 +15,27 @@ for line in data:
             if path == '/':
                 curdir = path
             else:
-                #print(os.path.join(curdir, path))
                 curdir = os.path.normpath((os.path.join(curdir, path)))
                 # print(curdir)
             if curdir not in dirs:
                 dirs[curdir] = []
+                directory_size[curdir] = 0
     else:
-        print(line.split())
-print(dirs)
+        fsize, fname = line.split()
+        if fsize != 'dir':
+            directory_size[curdir] += int(fsize)
+
+for ii in dirs:
+    sub_dir.append(ii)
+
+for ii in dirs:
+    for i in directory_size:
+        if i in ii and i != ii:
+            size = directory_size[ii]
+            directory_size[i] += size
+
+for i in directory_size:
+    if directory_size[i] <= 100000:
+        totaldir += directory_size[i]
+
+print(totaldir)
