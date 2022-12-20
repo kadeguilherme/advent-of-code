@@ -38,4 +38,18 @@ for i in directory_size:
     if directory_size[i] <= 100000:
         totaldir += directory_size[i]
 
-print(totaldir)
+
+# PART 2
+unused = 70000000 - directory_size['/']
+size_least = 30000000 - unused
+size_least_dir = {}
+for i in directory_size:
+    if directory_size[i] > size_least:
+        size_least_dir[i] = directory_size[i] - size_least
+
+min_value = min(size_least_dir.values())
+
+key = {key for key, value in size_least_dir.items() if value ==
+       min_value}
+
+print(directory_size[str(key).strip("{''}")])
