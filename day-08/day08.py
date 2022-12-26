@@ -31,5 +31,44 @@ with open("day08.txt", "r") as file:
                 total += 1
     print(total + total_edge)
 
-
 # PART2
+    score = []
+    for row in range(1, ROWS - 1):
+        for column in range(1, COLUMNS - 1):
+            rtotal = 0
+            ltotal = 0
+            uptotal = 0
+            downtotal = 0
+            current = matriz[row][column]
+            right = [matriz[row][i] for i in range(column+1, COLUMNS)]
+            left = [matriz[row][i] for i in range(column-1, -1, -1)]
+            down = [matriz[i][column]for i in range(row+1, ROWS)]
+            up = [matriz[i][column] for i in range(row-1, -1, -1)]
+            for r in right:
+                if current > r:
+                    rtotal += 1
+                else:
+                    rtotal += 1
+                    break
+            for l in left:
+                if current > l:
+                    ltotal += 1
+                else:
+                    ltotal += 1
+                    break
+            for u in up:
+                if current > u:
+                    uptotal += 1
+                else:
+                    uptotal += 1
+                    break
+            for d in down:
+                if current > d:
+                    downtotal += 1
+                else:
+                    downtotal += 1
+                    break
+
+            score.append(rtotal*ltotal*uptotal*downtotal)
+
+    print(max(score))
